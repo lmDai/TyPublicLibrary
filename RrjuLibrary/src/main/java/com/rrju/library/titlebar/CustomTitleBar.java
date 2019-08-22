@@ -100,7 +100,7 @@ import com.rrju.library.utils.StatusBarUtils;
  * Time: 16:13
  */
 @SuppressWarnings("ResourceType")
-public class CommonTitleBar extends RelativeLayout implements View.OnClickListener {
+public class CustomTitleBar extends RelativeLayout implements View.OnClickListener {
     private View viewStatusBarFill;                     // 状态栏填充视图
     private View viewBottomLine;                        // 分隔线视图
     private View viewBottomShadow;                      // 底部阴影
@@ -183,7 +183,7 @@ public class CommonTitleBar extends RelativeLayout implements View.OnClickListen
     private static final int TYPE_CENTER_SEARCH_RIGHT_VOICE = 0;
     private static final int TYPE_CENTER_SEARCH_RIGHT_DELETE = 1;
 
-    public CommonTitleBar(Context context, AttributeSet attrs) {
+    public CustomTitleBar(Context context, AttributeSet attrs) {
         super(context, attrs);
         setId(R.id.public_title_bar);
         loadAttributes(context, attrs);
@@ -195,60 +195,60 @@ public class CommonTitleBar extends RelativeLayout implements View.OnClickListen
         PADDING_5 = ScreenUtils.dip2px(context, 5);
         PADDING_12 = ScreenUtils.dip2px(context, 12);
 
-        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.CommonTitleBar);
+        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.CustomTitleBar);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             // notice 未引入沉浸式标题栏之前,隐藏标题栏撑起布局
-            fillStatusBar = array.getBoolean(R.styleable.CommonTitleBar_fillStatusBar, true);
+            fillStatusBar = array.getBoolean(R.styleable.CustomTitleBar_fillStatusBar, true);
         }
-        titleBarColor = array.getColor(R.styleable.CommonTitleBar_titleBarColor, Color.parseColor("#ffffff"));
-        titleBarHeight = (int) array.getDimension(R.styleable.CommonTitleBar_titleBarHeight, ScreenUtils.dip2px(context, 44));
-        statusBarColor = array.getColor(R.styleable.CommonTitleBar_statusBarColor, Color.parseColor("#ffffff"));
-        statusBarMode = array.getInt(R.styleable.CommonTitleBar_statusBarMode, 0);
+        titleBarColor = array.getColor(R.styleable.CustomTitleBar_titleBarColor, Color.parseColor("#ffffff"));
+        titleBarHeight = (int) array.getDimension(R.styleable.CustomTitleBar_titleBarHeight, ScreenUtils.dip2px(context, 44));
+        statusBarColor = array.getColor(R.styleable.CustomTitleBar_statusBarColor, Color.parseColor("#ffffff"));
+        statusBarMode = array.getInt(R.styleable.CustomTitleBar_statusBarMode, 0);
 
-        showBottomLine = array.getBoolean(R.styleable.CommonTitleBar_showBottomLine, true);
-        bottomLineColor = array.getColor(R.styleable.CommonTitleBar_bottomLineColor, Color.parseColor("#dddddd"));
-        bottomShadowHeight = array.getDimension(R.styleable.CommonTitleBar_bottomShadowHeight, ScreenUtils.dip2px(context, 0));
+        showBottomLine = array.getBoolean(R.styleable.CustomTitleBar_showBottomLine, true);
+        bottomLineColor = array.getColor(R.styleable.CustomTitleBar_bottomLineColor, Color.parseColor("#dddddd"));
+        bottomShadowHeight = array.getDimension(R.styleable.CustomTitleBar_bottomShadowHeight, ScreenUtils.dip2px(context, 0));
 
-        leftType = array.getInt(R.styleable.CommonTitleBar_leftType, TYPE_LEFT_IMAGEBUTTON);
+        leftType = array.getInt(R.styleable.CustomTitleBar_leftType, TYPE_LEFT_IMAGEBUTTON);
         if (leftType == TYPE_LEFT_TEXTVIEW) {
-            leftText = array.getString(R.styleable.CommonTitleBar_leftText);
-            leftTextColor = array.getColor(R.styleable.CommonTitleBar_leftTextColor, getResources().getColor(R.color.comm_titlebar_text_selector));
-            leftTextSize = array.getDimension(R.styleable.CommonTitleBar_leftTextSize, ScreenUtils.dip2px(context, 16));
-            leftDrawable = array.getResourceId(R.styleable.CommonTitleBar_leftDrawable, 0);
-            leftDrawablePadding = array.getDimension(R.styleable.CommonTitleBar_leftDrawablePadding, 5);
+            leftText = array.getString(R.styleable.CustomTitleBar_leftText);
+            leftTextColor = array.getColor(R.styleable.CustomTitleBar_leftTextColor, getResources().getColor(R.color.comm_titlebar_text_selector));
+            leftTextSize = array.getDimension(R.styleable.CustomTitleBar_leftTextSize, ScreenUtils.dip2px(context, 16));
+            leftDrawable = array.getResourceId(R.styleable.CustomTitleBar_leftDrawable, 0);
+            leftDrawablePadding = array.getDimension(R.styleable.CustomTitleBar_leftDrawablePadding, 5);
         } else if (leftType == TYPE_LEFT_IMAGEBUTTON) {
-            leftImageResource = array.getResourceId(R.styleable.CommonTitleBar_leftImageResource, R.drawable.comm_titlebar_reback_selector);
+            leftImageResource = array.getResourceId(R.styleable.CustomTitleBar_leftImageResource, R.drawable.comm_titlebar_reback_selector);
         } else if (leftType == TYPE_LEFT_CUSTOM_VIEW) {
-            leftCustomViewRes = array.getResourceId(R.styleable.CommonTitleBar_leftCustomView, 0);
+            leftCustomViewRes = array.getResourceId(R.styleable.CustomTitleBar_leftCustomView, 0);
         }
 
-        rightType = array.getInt(R.styleable.CommonTitleBar_rightType, TYPE_RIGHT_NONE);
+        rightType = array.getInt(R.styleable.CustomTitleBar_rightType, TYPE_RIGHT_NONE);
         if (rightType == TYPE_RIGHT_TEXTVIEW) {
-            rightText = array.getString(R.styleable.CommonTitleBar_rightText);
-            rightTextColor = array.getColor(R.styleable.CommonTitleBar_rightTextColor, getResources().getColor(R.color.comm_titlebar_text_selector));
-            rightTextSize = array.getDimension(R.styleable.CommonTitleBar_rightTextSize, ScreenUtils.dip2px(context, 16));
+            rightText = array.getString(R.styleable.CustomTitleBar_rightText);
+            rightTextColor = array.getColor(R.styleable.CustomTitleBar_rightTextColor, getResources().getColor(R.color.comm_titlebar_text_selector));
+            rightTextSize = array.getDimension(R.styleable.CustomTitleBar_rightTextSize, ScreenUtils.dip2px(context, 16));
         } else if (rightType == TYPE_RIGHT_IMAGEBUTTON) {
-            rightImageResource = array.getResourceId(R.styleable.CommonTitleBar_rightImageResource, 0);
+            rightImageResource = array.getResourceId(R.styleable.CustomTitleBar_rightImageResource, 0);
         } else if (rightType == TYPE_RIGHT_CUSTOM_VIEW) {
-            rightCustomViewRes = array.getResourceId(R.styleable.CommonTitleBar_rightCustomView, 0);
+            rightCustomViewRes = array.getResourceId(R.styleable.CustomTitleBar_rightCustomView, 0);
         }
 
-        centerType = array.getInt(R.styleable.CommonTitleBar_centerType, TYPE_CENTER_TEXTVIEW);
+        centerType = array.getInt(R.styleable.CustomTitleBar_centerType, TYPE_CENTER_TEXTVIEW);
         if (centerType == TYPE_CENTER_TEXTVIEW) {
-            centerText = array.getString(R.styleable.CommonTitleBar_centerText);
-            centerTextColor = array.getColor(R.styleable.CommonTitleBar_centerTextColor, Color.parseColor("#333333"));
-            centerTextSize = array.getDimension(R.styleable.CommonTitleBar_centerTextSize, ScreenUtils.dip2px(context, 18));
-            centerTextMarquee = array.getBoolean(R.styleable.CommonTitleBar_centerTextMarquee, true);
-            centerSubText = array.getString(R.styleable.CommonTitleBar_centerSubText);
-            centerSubTextColor = array.getColor(R.styleable.CommonTitleBar_centerSubTextColor, Color.parseColor("#666666"));
-            centerSubTextSize = array.getDimension(R.styleable.CommonTitleBar_centerSubTextSize, ScreenUtils.dip2px(context, 11));
+            centerText = array.getString(R.styleable.CustomTitleBar_centerText);
+            centerTextColor = array.getColor(R.styleable.CustomTitleBar_centerTextColor, Color.parseColor("#333333"));
+            centerTextSize = array.getDimension(R.styleable.CustomTitleBar_centerTextSize, ScreenUtils.dip2px(context, 18));
+            centerTextMarquee = array.getBoolean(R.styleable.CustomTitleBar_centerTextMarquee, true);
+            centerSubText = array.getString(R.styleable.CustomTitleBar_centerSubText);
+            centerSubTextColor = array.getColor(R.styleable.CustomTitleBar_centerSubTextColor, Color.parseColor("#666666"));
+            centerSubTextSize = array.getDimension(R.styleable.CustomTitleBar_centerSubTextSize, ScreenUtils.dip2px(context, 11));
         } else if (centerType == TYPE_CENTER_SEARCHVIEW) {
-            centerSearchEditable = array.getBoolean(R.styleable.CommonTitleBar_centerSearchEditable, true);
-            centerSearchBgResource = array.getResourceId(R.styleable.CommonTitleBar_centerSearchBg, R.drawable.comm_titlebar_search_gray_shape);
-            centerSearchRightType = array.getInt(R.styleable.CommonTitleBar_centerSearchRightType, TYPE_CENTER_SEARCH_RIGHT_VOICE);
+            centerSearchEditable = array.getBoolean(R.styleable.CustomTitleBar_centerSearchEditable, true);
+            centerSearchBgResource = array.getResourceId(R.styleable.CustomTitleBar_centerSearchBg, R.drawable.comm_titlebar_search_gray_shape);
+            centerSearchRightType = array.getInt(R.styleable.CustomTitleBar_centerSearchRightType, TYPE_CENTER_SEARCH_RIGHT_VOICE);
         } else if (centerType == TYPE_CENTER_CUSTOM_VIEW) {
-            centerCustomViewRes = array.getResourceId(R.styleable.CommonTitleBar_centerCustomView, 0);
+            centerCustomViewRes = array.getResourceId(R.styleable.CustomTitleBar_centerCustomView, 0);
         }
 
         array.recycle();

@@ -15,9 +15,8 @@
  */
 package com.rrju.library.permission;
 
-import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 
 import com.rrju.library.ui.SysAlertDialog;
 import com.yanzhenjie.permission.Rationale;
@@ -30,8 +29,9 @@ public class NotifyRationale implements Rationale<Void> {
 
     @Override
     public void showRationale(Context context, Void data, final RequestExecutor executor) {
-        SysAlertDialog.showAlertDialog(context, "权限申请", "你的设备不允许我们弹出通知。",
-                "允许", (dialog, which) -> executor.execute(),
-                "取消", (dialog, which) -> executor.cancel());
+        Dialog dialog = SysAlertDialog.showAlertDialog(context, "权限申请", "你的设备不允许我们弹出通知。",
+                "允许", (dialogInterface, which) -> executor.execute(),
+                "取消", (dialogInterface, which) -> executor.cancel());
+        dialog.setCancelable(false);
     }
 }

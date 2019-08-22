@@ -4,29 +4,19 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.graphics.Typeface;
-import android.os.Build;
 import android.os.Bundle;
-import android.text.TextPaint;
 import android.text.TextUtils;
-import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.core.content.ContextCompat;
-
 import com.rrju.library.R;
-import com.rrju.library.titlebar.CommonTitleBar;
+import com.rrju.library.titlebar.CustomTitleBar;
 import com.rrju.library.ui.SysAlertDialog;
-import com.rrju.library.utils.DisplayUtil;
 
 
 /**
@@ -43,7 +33,7 @@ public abstract class BaseActivity extends Activity {
      * 并提供相对路径给creatFromAsset()来创建Typeface对象
      */
     private Resources res;
-    private CommonTitleBar mTitleBar;
+    private CustomTitleBar mTitleBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +42,7 @@ public abstract class BaseActivity extends Activity {
         myContext = this;
         // 获取通用资源
         res = getResources();
-     //   setTitleBarLayoutParam();
+        setTitleBarLayoutParam();
         initView();
         initData();
         initListener();
@@ -62,8 +52,8 @@ public abstract class BaseActivity extends Activity {
         try {
             mTitleBar = findViewById(R.id.public_title_bar);
             mTitleBar.setListener((v, action, extra) -> {
-                if (action == CommonTitleBar.ACTION_LEFT_BUTTON
-                        || action == CommonTitleBar.ACTION_LEFT_TEXT) {
+                if (action == CustomTitleBar.ACTION_LEFT_BUTTON
+                        || action == CustomTitleBar.ACTION_LEFT_TEXT) {
                     onBackPressed();
                 }
             });

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--自定义titlebar-->
-    <declare-styleable name="CommonTitleBar">
+    <declare-styleable name="CustomTitleBar">
         <!-- 标题栏背景 图片或颜色 -->
         <attr name="titleBarColor" format="color" />
         <!-- 填充状态栏 -->

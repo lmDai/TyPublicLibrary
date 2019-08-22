@@ -5,8 +5,12 @@
     android:background="@color/rrj_main_bg_color"
     xmlns:titlebar="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
-    <com.rrju.library.titlebar.CommonTitleBar
+    <TextView
+        android:id="@+id/tv_wodedianji"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        titlebar:leftType="textView" />
+        android:textSize="@dimen/text_size_18"
+        android:textColor="@color/text_black"
+        android:text="图片"
+        android:gravity="center"
+        android:layout_height="50dp" />
 </LinearLayout>

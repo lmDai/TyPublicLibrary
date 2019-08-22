@@ -16,7 +16,7 @@ import android.widget.Toast;
 import androidx.fragment.app.FragmentActivity;
 
 import com.rrju.library.R;
-import com.rrju.library.titlebar.CommonTitleBar;
+import com.rrju.library.titlebar.CustomTitleBar;
 import com.rrju.library.ui.SysAlertDialog;
 
 /**
@@ -30,7 +30,7 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
      */
     public Typeface fontFace;
     private Resources res;
-    private CommonTitleBar mTitleBar;
+    private CustomTitleBar mTitleBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +48,8 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
         try {
             mTitleBar = findViewById(R.id.public_title_bar);
             mTitleBar.setListener((v, action, extra) -> {
-                if (action == CommonTitleBar.ACTION_LEFT_BUTTON
-                        || action == CommonTitleBar.ACTION_LEFT_TEXT) {
+                if (action == CustomTitleBar.ACTION_LEFT_BUTTON
+                        || action == CustomTitleBar.ACTION_LEFT_TEXT) {
                     onBackPressed();
                 }
             });

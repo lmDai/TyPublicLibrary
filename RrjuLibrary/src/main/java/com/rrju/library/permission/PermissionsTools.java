@@ -7,10 +7,8 @@ import android.util.Log;
 
 import com.rrju.library.R;
 import com.rrju.library.ui.SysAlertDialog;
-import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Permission;
-import com.yanzhenjie.permission.setting.Setting;
 
 import java.util.List;
 
@@ -45,31 +43,31 @@ public class PermissionsTools {
     }
 
     /**
-     * Request notification permission.
+     * 请求许可通知。
      */
-    public static  void requestNotification(Context mContext) {
+    public static void requestNotification(Context mContext) {
         AndPermission.with(mContext)
                 .notification()
                 .permission()
                 .rationale(new NotifyRationale())
-                .onGranted(data -> permissionListener.onSucceed())
-                .onDenied(data -> {
-//                       showSettingDialog(mContext, data);
-                })
+                .onGranted(data -> Log.e("Notification", "允许"))
+                .onDenied(data -> Log.e("Notification", "失败"))
                 .start();
     }
+
     /**
-     * Request notification listener.
+     * 请求通知侦听器。
      */
-    public static  void requestNotificationListener(Context mContext) {
+    public static void requestNotificationListener(Context mContext) {
         AndPermission.with(mContext)
                 .notification()
                 .listener()
                 .rationale(new NotifyListenerRationale())
-                .onGranted(data -> permissionListener.onSucceed())
-                .onDenied(data -> Log.e("",""))
+                .onGranted(data -> Log.e("NotificationListener", "允许"))
+                .onDenied(data -> Log.e("NotificationListener", "拒绝"))
                 .start();
     }
+
     /**
      * 显示弹窗设置
      *
