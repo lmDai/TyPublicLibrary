@@ -3,7 +3,7 @@ package com.rrju.library.largeimage;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 
-import androidx.annotation.DrawableRes;
+import android.support.annotation.DrawableRes;
 
 import com.rrju.library.largeimage.factory.BitmapDecoderFactory;
 

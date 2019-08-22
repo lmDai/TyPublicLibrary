@@ -10,7 +10,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 
-import androidx.annotation.ColorInt;
+import android.support.annotation.ColorInt;
 
 import com.rrju.library.titlebar.FlymeStatusBarUtils;
 import com.rrju.library.titlebar.OSUtils;

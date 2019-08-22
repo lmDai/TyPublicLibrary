@@ -5,8 +5,8 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.AttributeSet;
 
-import androidx.annotation.DrawableRes;
-import androidx.annotation.NonNull;
+import android.support.annotation.DrawableRes;
+import android.support.annotation.NonNull;
 
 import com.bumptech.glide.load.Transformation;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;

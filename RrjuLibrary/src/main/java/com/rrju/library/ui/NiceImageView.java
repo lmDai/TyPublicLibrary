@@ -15,11 +15,11 @@ import android.graphics.RectF;
 import android.graphics.Xfermode;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 
-import androidx.annotation.ColorInt;
-import androidx.annotation.Nullable;
-import androidx.appcompat.widget.AppCompatImageView;
+import android.support.annotation.ColorInt;
+import android.support.annotation.Nullable;
 
 import com.rrju.library.R;
 import com.rrju.library.utils.DisplayUtil;

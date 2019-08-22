@@ -7,7 +7,7 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
-import androidx.annotation.DrawableRes;
+import android.support.annotation.DrawableRes;
 
 import java.util.Timer;
 import java.util.TimerTask;

@@ -18,12 +18,12 @@ import android.graphics.BitmapFactory;
 import android.graphics.BitmapRegionDecoder;
 import android.graphics.Rect;
 import android.os.Build;
+import android.support.v4.util.Pools;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.SparseIntArray;
 
 
-import androidx.core.util.Pools;
 
 import com.rrju.library.largeimage.factory.BitmapDecoderFactory;
 

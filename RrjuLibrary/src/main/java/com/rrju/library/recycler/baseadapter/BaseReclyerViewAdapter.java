@@ -2,12 +2,12 @@ package com.rrju.library.recycler.baseadapter;
 
 import android.animation.Animator;
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 
 
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.rrju.library.recycler.animation.AlphaInAnimation;
 import com.rrju.library.recycler.animation.BaseAnimation;

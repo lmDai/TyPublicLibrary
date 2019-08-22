@@ -16,8 +16,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.ColorRes;
-import androidx.annotation.DrawableRes;
+import android.support.annotation.ColorRes;
+import android.support.annotation.DrawableRes;
 
 import com.rrju.library.R;
 import com.rrju.library.utils.DisplayUtil;

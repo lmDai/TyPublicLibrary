@@ -6,6 +6,9 @@ import android.content.res.TypedArray;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.NonNull;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
@@ -20,14 +23,13 @@ import android.widget.RelativeLayout;
 import android.widget.Scroller;
 
 
-import androidx.annotation.AttrRes;
-import androidx.annotation.DrawableRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.annotation.StyleRes;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
+import android.support.annotation.AttrRes;
+import android.support.annotation.DrawableRes;
+
+import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
+import android.support.annotation.StyleRes;
+
 
 import com.rrju.library.R;
 import com.rrju.library.banner.holder.BannerHolderCreator;

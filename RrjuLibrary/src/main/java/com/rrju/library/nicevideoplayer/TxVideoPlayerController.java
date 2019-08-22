@@ -15,7 +15,7 @@ import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import androidx.annotation.DrawableRes;
+import android.support.annotation.DrawableRes;
 
 import com.rrju.library.R;
 

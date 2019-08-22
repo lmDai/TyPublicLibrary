@@ -1,11 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion var.compileSdkVersion
     defaultConfig {
         applicationId "com.rrju.typubliclibrary"
-        minSdkVersion 21
-        targetSdkVersion 29
+        minSdkVersion var.minSdkVersion
+        targetSdkVersion var.targetSdkVersion
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -15,13 +15,6 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-    allprojects {
-        repositories {
-            google()
-            jcenter()
-            maven { url "https://jitpack.io" }
         }
     }
     compileOptions {
@@ -43,5 +36,6 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'junit:junit:4.12'
     implementation project(path: ':RrjuLibrary')
 }

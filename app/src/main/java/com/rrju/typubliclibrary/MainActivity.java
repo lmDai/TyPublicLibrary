@@ -13,7 +13,6 @@ import com.luck.picture.lib.entity.LocalMedia;
 import com.rrju.library.base.BaseActivity;
 import com.rrju.library.permission.PermissionListener;
 import com.rrju.library.permission.PermissionsTools;
-import com.yanzhenjie.permission.AndPermission;
 
 import java.util.List;
 
@@ -28,8 +27,8 @@ public class MainActivity extends BaseActivity {
     @Override
     public void initView() {
 //        setLeftImageButton();
-        setTitle("的撒所打算多发顺丰水电费",R.color.black);
-        setLeftTextView("返回",R.color.rrj_theme_color);
+        setTitle("的撒所打算多发顺丰水电费", R.color.black);
+        setLeftTextView("返回", R.color.rrj_theme_color);
 //        setLeftImageButton();
         mTvWodedianji = (TextView) findViewById(R.id.tv_wodedianji);
         mTvWodedianji.setOnClickListener(new View.OnClickListener() {
@@ -70,27 +69,24 @@ public class MainActivity extends BaseActivity {
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
     };
-    private void requestPermissionArray(String[] permission) {
-        if (AndPermission.hasPermissions(this, Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.READ_EXTERNAL_STORAGE)) {
-            //直接执行相应操作了
-        } else {
-            //设置必须允许的权限
-            PermissionsTools.necessaryPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                    Manifest.permission.READ_EXTERNAL_STORAGE);
-            PermissionsTools.setPermissions(this,new PermissionListener() {
-                @Override
-                public void onSucceed() {
-                    initData();
-                }
 
-                @Override
-                public void onCancel() {
-                    finish();
-                }
-            }, permission);
-        }
+    private void requestPermissionArray(String[] permission) {
+        //设置必须允许的权限
+        PermissionsTools.necessaryPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_EXTERNAL_STORAGE);
+        PermissionsTools.setPermissions(this, new PermissionListener() {
+            @Override
+            public void onSucceed() {
+                initData();
+            }
+
+            @Override
+            public void onCancel() {
+                finish();
+            }
+        }, permission);
     }
+
     @Override
     public void initData() {
 
@@ -100,6 +96,7 @@ public class MainActivity extends BaseActivity {
     public void initListener() {
 
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

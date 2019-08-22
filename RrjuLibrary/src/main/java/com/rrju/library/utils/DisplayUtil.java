@@ -11,7 +11,7 @@ import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 
-import androidx.annotation.ColorRes;
+import android.support.annotation.ColorRes;
 
 import java.util.Collection;
 

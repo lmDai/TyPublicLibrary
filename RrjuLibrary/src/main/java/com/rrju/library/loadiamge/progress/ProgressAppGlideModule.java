@@ -2,7 +2,7 @@ package com.rrju.library.loadiamge.progress;
 
 import android.content.Context;
 
-import androidx.annotation.NonNull;
+import android.support.annotation.NonNull;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.GlideBuilder;

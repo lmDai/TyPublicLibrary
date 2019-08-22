@@ -1,9 +1,8 @@
 package com.rrju.library.recycler.universaladapter.recyclerview.support;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 
-
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.rrju.library.recycler.universaladapter.ViewHolderHelper;
 import com.rrju.library.recycler.universaladapter.recyclerview.MultiItemRecycleViewAdapter;

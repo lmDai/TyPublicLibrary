@@ -13,7 +13,7 @@ import android.util.AttributeSet;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ProgressBar;
 
-import androidx.annotation.IntDef;
+import android.support.annotation.IntDef;
 
 import com.rrju.library.R;
 import com.rrju.library.utils.DisplayUtil;
