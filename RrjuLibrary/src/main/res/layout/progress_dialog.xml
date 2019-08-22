@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:djl="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dialog_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:background="@drawable/alert_progress_bg"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:ignore="UseCompoundDrawables">
+
+    <com.rrju.library.ui.CircleProgressBar
+        android:id="@+id/pbProgress"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        djl:indetermiate="true"
+        djl:indetermiateDrawable="@drawable/spinner_black_48"
+        djl:progressDrawable="@drawable/progress" />
+
+    <TextView
+        android:id="@+id/tvMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_14"
+        tools:ignore="SelectableText" />
+
+</LinearLayout>

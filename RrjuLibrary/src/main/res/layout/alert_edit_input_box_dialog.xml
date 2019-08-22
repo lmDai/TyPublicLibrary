@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dialog_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:background="@drawable/alert_dialog_bg"
+    android:minWidth="200dp"
+    android:orientation="vertical"
+    tools:ignore="UseCompoundDrawables">
+
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        android:textColor="@color/rrj_gray"
+        android:textSize="@dimen/text_size_18"
+        android:visibility="visible"
+        tools:ignore="SelectableText" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tv_edit_key"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:textColor="@color/little_black"
+            android:textSize="@dimen/text_size_16"
+            android:visibility="visible" />
+
+        <EditText
+            android:id="@+id/etv_edit_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="@string/invite_import"
+            android:maxHeight="120dp"
+            android:minHeight="50dp"
+            android:padding="5dp"
+            android:textColor="@color/rrj_gray"
+            android:textColorHint="@color/rrj_little_gray"
+            android:textSize="@dimen/text_size_16" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/llButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <com.rrju.library.ui.ExtButton
+            android:id="@+id/btnNegative"
+            style="@style/alert_dialog_negtive_btn_text_style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/btn_left_bg"
+            android:minWidth="100dp" />
+
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:contentDescription="@null" />
+
+        <com.rrju.library.ui.ExtButton
+            android:id="@+id/btnPositive"
+            style="@style/alert_dialog_negtive_btn_text_style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/btn_right_bg"
+            android:minWidth="100dp"
+            android:textColor="@drawable/alert_button_blue_color" />
+
+    </LinearLayout>
+
+</LinearLayout>

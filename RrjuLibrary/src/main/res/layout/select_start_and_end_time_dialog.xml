@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@drawable/alert_dialog_bg"
+    android:minWidth="200dp"
+    android:orientation="vertical"
+    tools:ignore="UseCompoundDrawables">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        android:textColor="@color/rrj_gray"
+        android:textSize="@dimen/text_size_18"
+        android:visibility="visible"
+        tools:ignore="SelectableText" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:layout_marginTop="1dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:id="@+id/tv_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="5dp"
+            android:text="@string/start"
+            android:textColor="@color/rrj_theme_little_blue"
+            android:textSize="@dimen/text_size_16" />
+
+        <com.rrju.library.ui.datatime.WheelView
+            android:id="@+id/start_hour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <com.rrju.library.ui.datatime.WheelView
+            android:id="@+id/start_min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <com.rrju.library.ui.datatime.WheelView
+            android:id="@+id/tv_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:text="@string/end"
+            android:textColor="@color/rrj_theme_little_blue"
+            android:textSize="@dimen/text_size_16" />
+
+        <com.rrju.library.ui.datatime.WheelView
+            android:id="@+id/end_hour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <com.rrju.library.ui.datatime.WheelView
+            android:id="@+id/end_min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+        <com.rrju.library.ui.ExtButton
+            android:id="@+id/btnNegative"
+            style="@style/alert_dialog_negtive_btn_text_style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/btn_left_bg"
+            android:minWidth="100dp" />
+
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:contentDescription="@null" />
+
+        <com.rrju.library.ui.ExtButton
+            android:id="@+id/btnPositive"
+            style="@style/alert_dialog_negtive_btn_text_style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/btn_right_bg"
+            android:minWidth="100dp"
+            android:textColor="@drawable/alert_button_blue_color" />
+    </LinearLayout>
+
+</LinearLayout>

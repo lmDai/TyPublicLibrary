@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="5dp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_18" />
+
+    <ListView
+        android:id="@+id/lvContent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/alert_dialog_positive_button"
+        android:cacheColorHint="@color/transparent"
+        android:divider="#EEEEEE"
+        android:dividerHeight="0.5dp"
+        android:drawSelectorOnTop="false"
+        android:fadeScrollbars="true"
+        android:fadingEdge="none"
+        android:listSelector="@color/transparent" />
+    <View
+        android:layout_height="0.5dp"
+        android:layout_width="match_parent"
+        android:background="#EEEEEE"
+        />
+    <Button
+        android:id="@+id/btnAlertCancel"
+        style="@style/android:Widget.TextView"
+        android:textSize="@dimen/text_size_16"
+        android:textColor="@drawable/alert_button_text_color"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/alert_listview_dialog_item_height"
+        android:background="@drawable/alert_dialog_positive_button"
+        android:text="取消" />
+
+</LinearLayout>

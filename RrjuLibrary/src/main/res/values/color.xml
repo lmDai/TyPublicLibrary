@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="nine_image_text_background_color">#4D000000</color>
+    <color name="nine_image_text_color">#FFFFFF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="white_transparent">#a7c3d1</color>
+    <color name="black">#000000</color>
+    <color name="text_gray">#888888</color>
+    <color name="text_black">#101d37</color>
+    <color name="rrj_gray">#898989</color>
+    <color name="rrj_little_black">#454444</color>
+    <color name="little_transparent">#33000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="little_black">#505050</color>
+    <color name="rrj_little_gray">#888888</color>
+    <color name="rrj_main_bg_color">#f7f8f8</color>
+    <color name="rrj_divide_line">#e1e1e1</color>
+    <color name="rrj_little2_gray">#DCDDDD</color>
+    <color name="rrj_little3_gray">#F7F7F7</color>
+    <color name="rrj_little4_gray">#EEEEEE</color>
+    <color name="rrj_text_black">#101d36</color>
+    <color name="rrj_text_gray">#9399a5</color>
+    <color name="rrj_theme_color">#ffe623</color>
+    <color name="rrj_theme_content_color">#ffe623</color>
+    <color name="rrj_theme_little_blue">#52c3f1</color>
+    <color name="rrj_text_hint_color">#CFCFCF</color>
+    <color name="rrj_blue">#10AEFF</color>
+    <color name="rrj_alert_blue">#46B3E2</color>
+    <color name="rrj_top_tool_bar">#40C2FC</color>
+    <color name="rrj_bottle_green">#0C5DB2</color>
+    <color name="dialog_bg">#bc000000</color>
+
+    <color name="alert_dialog_bg_color">#FFFFFF</color>
+    <color name="alert_dialog_positive_button_n">#FFFFFF</color>
+    <color name="alert_dialog_positive_button_p">#d2d2d2</color>
+    <color name="wheel_view_line">#EFEFEF</color>
+    <color name="wheel_view_text_unselcted">#9FA0A0</color>
+    <color name="wheel_view_text_selcted">#898989</color>
+    <color name="webview_with_progress_color_n">#aff28c</color>
+    <color name="webview_with_progress_color_p">#6cba42</color>
+</resources>
