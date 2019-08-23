@@ -8,7 +8,6 @@ android {
         targetSdkVersion var.targetSdkVersion
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -38,4 +37,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'junit:junit:4.12'
     implementation project(path: ':RrjuLibrary')
+    implementation project(path: ':picture_library')
+
 }

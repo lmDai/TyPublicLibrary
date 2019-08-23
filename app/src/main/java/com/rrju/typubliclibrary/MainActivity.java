@@ -16,6 +16,7 @@ import com.rrju.library.permission.PermissionsTools;
 
 import java.util.List;
 
+
 public class MainActivity extends BaseActivity {
     private TextView mTvWodedianji;
 
