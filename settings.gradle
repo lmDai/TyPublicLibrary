@@ -1,1 +1,1 @@
-include ':app', ':RrjuLibrary', ':ucrop', ':picture_library', ':permission'
+include ':app', ':RrjuLibrary'

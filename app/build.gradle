@@ -37,6 +37,4 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'junit:junit:4.12'
     implementation project(path: ':RrjuLibrary')
-    implementation project(path: ':picture_library')
-
 }
