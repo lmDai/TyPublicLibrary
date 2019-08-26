@@ -108,7 +108,10 @@ public abstract class BaseFragment extends Fragment {
      * 初始数据的代码写在这个方法中，用于从服务器获取数据
      */
     public abstract void initData();
-
+    /**
+     * 初始化网络请求
+     */
+    public abstract void initHttp();
     /**
      * 通过Class跳转界面
      **/

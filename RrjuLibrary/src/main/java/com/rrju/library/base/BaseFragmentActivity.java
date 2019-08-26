@@ -75,7 +75,10 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
      * 初始化监听器的代码写在这个方法中
      */
     public abstract void initListener();
-
+    /**
+     * 初始化网络请求
+     */
+    public abstract void initHttp();
 
     @Override
     protected void onResume() {

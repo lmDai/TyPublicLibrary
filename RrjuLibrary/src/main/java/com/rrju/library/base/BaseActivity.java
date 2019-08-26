@@ -43,6 +43,7 @@ public abstract class BaseActivity extends Activity {
         // 获取通用资源
         res = getResources();
         setTitleBarLayoutParam();
+        initHttp();
         initView();
         initData();
         initListener();
@@ -83,7 +84,10 @@ public abstract class BaseActivity extends Activity {
      * 初始化监听器的代码写在这个方法中
      */
     public abstract void initListener();
-
+    /**
+     * 初始化网络请求
+     */
+    public abstract void initHttp();
     @Override
     protected void onResume() {
         super.onResume();
