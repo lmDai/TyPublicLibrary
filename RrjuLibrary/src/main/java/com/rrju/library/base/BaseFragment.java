@@ -54,6 +54,7 @@ public abstract class BaseFragment extends Fragment {
         res = getResources();
         // 获取FragmentManager 对象
         m_fragmentManager = getActivity().getSupportFragmentManager();
+        initHttp();
         initView();
         initData();
         initListener();

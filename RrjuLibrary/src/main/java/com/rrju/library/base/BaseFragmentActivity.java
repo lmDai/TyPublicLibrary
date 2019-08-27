@@ -37,6 +37,7 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
         // 获取通用资源
         res = getResources();
         setTitleBarLayoutParam();
+        initHttp();
         initView();
         initData();
         initListener();
