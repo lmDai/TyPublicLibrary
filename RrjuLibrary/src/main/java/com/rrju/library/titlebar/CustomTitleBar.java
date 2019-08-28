@@ -270,7 +270,10 @@ public class CustomTitleBar extends RelativeLayout implements View.OnClickListen
 
         // 构建标题栏填充视图
         if (fillStatusBar && transparentStatusBar) {
-            int statusBarHeight = StatusBarUtils.getStatusBarHeight(context);
+            int statusBarHeight = 0;
+            try {
+                statusBarHeight = StatusBarUtils.getStatusBarHeight(context);
+            } catch (Exception e) {}
             viewStatusBarFill = new View(context);
             viewStatusBarFill.setId(StatusBarUtils.generateViewId());
             viewStatusBarFill.setBackgroundColor(statusBarColor);
