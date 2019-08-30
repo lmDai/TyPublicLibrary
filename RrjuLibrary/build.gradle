@@ -67,6 +67,5 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-fragment'
     }
 //    implementation 'com.yanzhenjie.permission:x:2.0.1'
-//    图片选择库
 
 }

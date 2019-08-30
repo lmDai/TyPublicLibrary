@@ -15,6 +15,11 @@
     <color name="rrj_little_gray">#888888</color>
     <color name="rrj_main_bg_color">#f7f8f8</color>
     <color name="rrj_divide_line">#e1e1e1</color>
+    <color name="rrj_red">#d61719</color>
+    <color name="rrj_little_red">#f95151</color>
+    <color name="rrj_little2_red">#EF858C</color>
+    <color name="gray_6a">#AAAAAA</color>
+    <color name="gray_eb">#EBEBEB</color>
     <color name="rrj_little2_gray">#DCDDDD</color>
     <color name="rrj_little3_gray">#F7F7F7</color>
     <color name="rrj_little4_gray">#EEEEEE</color>

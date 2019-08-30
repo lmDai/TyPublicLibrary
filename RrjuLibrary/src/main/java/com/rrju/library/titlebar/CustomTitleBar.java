@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -163,6 +164,7 @@ public class CustomTitleBar extends RelativeLayout implements View.OnClickListen
 
     private int PADDING_5;
     private int PADDING_12;
+    private int PADDING_20;
 
     private OnTitleBarListener listener;
     private OnTitleBarDoubleClickListener doubleClickListener;
@@ -194,6 +196,7 @@ public class CustomTitleBar extends RelativeLayout implements View.OnClickListen
     private void loadAttributes(Context context, AttributeSet attrs) {
         PADDING_5 = ScreenUtils.dip2px(context, 5);
         PADDING_12 = ScreenUtils.dip2px(context, 12);
+        PADDING_20 = ScreenUtils.dip2px(context, 20);
 
         TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.CustomTitleBar);
 
@@ -202,7 +205,7 @@ public class CustomTitleBar extends RelativeLayout implements View.OnClickListen
             fillStatusBar = array.getBoolean(R.styleable.CustomTitleBar_fillStatusBar, true);
         }
         titleBarColor = array.getColor(R.styleable.CustomTitleBar_titleBarColor, Color.parseColor("#ffffff"));
-        titleBarHeight = (int) array.getDimension(R.styleable.CustomTitleBar_titleBarHeight, ScreenUtils.dip2px(context, 44));
+        titleBarHeight = (int) array.getDimension(R.styleable.CustomTitleBar_titleBarHeight, ScreenUtils.dip2px(context, 45));
         statusBarColor = array.getColor(R.styleable.CustomTitleBar_statusBarColor, Color.parseColor("#ffffff"));
         statusBarMode = array.getInt(R.styleable.CustomTitleBar_statusBarMode, 0);
 
@@ -238,7 +241,7 @@ public class CustomTitleBar extends RelativeLayout implements View.OnClickListen
         if (centerType == TYPE_CENTER_TEXTVIEW) {
             centerText = array.getString(R.styleable.CustomTitleBar_centerText);
             centerTextColor = array.getColor(R.styleable.CustomTitleBar_centerTextColor, Color.parseColor("#333333"));
-            centerTextSize = array.getDimension(R.styleable.CustomTitleBar_centerTextSize, ScreenUtils.dip2px(context, 18));
+            centerTextSize = array.getDimension(R.styleable.CustomTitleBar_centerTextSize, ScreenUtils.dip2px(context, 16));
             centerTextMarquee = array.getBoolean(R.styleable.CustomTitleBar_centerTextMarquee, true);
             centerSubText = array.getString(R.styleable.CustomTitleBar_centerSubText);
             centerSubTextColor = array.getColor(R.styleable.CustomTitleBar_centerSubTextColor, Color.parseColor("#666666"));
@@ -356,6 +359,7 @@ public class CustomTitleBar extends RelativeLayout implements View.OnClickListen
             tvLeft.setTextColor(leftTextColor);
             tvLeft.setTextSize(TypedValue.COMPLEX_UNIT_PX, leftTextSize);
             tvLeft.setGravity(Gravity.START | Gravity.CENTER_VERTICAL);
+            tvLeft.setBackgroundResource(R.drawable.transparent_and_little_gray_bg);
             tvLeft.setSingleLine(true);
             tvLeft.setOnClickListener(this);
             // 设置DrawableLeft及DrawablePadding
@@ -367,7 +371,7 @@ public class CustomTitleBar extends RelativeLayout implements View.OnClickListen
                     tvLeft.setCompoundDrawablesWithIntrinsicBounds(leftDrawable, 0, 0, 0);
                 }
             }
-            tvLeft.setPadding(PADDING_12, 0, PADDING_12, 0);
+            tvLeft.setPadding(PADDING_20, 0, PADDING_12, 0);
 
             rlMain.addView(tvLeft, leftInnerParams);
 
@@ -375,9 +379,9 @@ public class CustomTitleBar extends RelativeLayout implements View.OnClickListen
             // 初始化左边ImageButton
             btnLeft = new ImageButton(context);
             btnLeft.setId(StatusBarUtils.generateViewId());
-            btnLeft.setBackgroundColor(Color.TRANSPARENT);
+            btnLeft.setBackgroundResource(R.drawable.transparent_and_little_gray_bg);
             btnLeft.setImageResource(leftImageResource);
-            btnLeft.setPadding(PADDING_12, 0, PADDING_12, 0);
+            btnLeft.setPadding(PADDING_20, 0, PADDING_12, 0);
             btnLeft.setOnClickListener(this);
 
             rlMain.addView(btnLeft, leftInnerParams);
@@ -412,7 +416,7 @@ public class CustomTitleBar extends RelativeLayout implements View.OnClickListen
             tvRight.setTextSize(TypedValue.COMPLEX_UNIT_PX, rightTextSize);
             tvRight.setGravity(Gravity.END | Gravity.CENTER_VERTICAL);
             tvRight.setSingleLine(true);
-            tvRight.setPadding(PADDING_12, 0, PADDING_12, 0);
+            tvRight.setPadding(PADDING_12, 0, PADDING_20, 0);
             tvRight.setOnClickListener(this);
             rlMain.addView(tvRight, rightInnerParams);
 
@@ -423,7 +427,7 @@ public class CustomTitleBar extends RelativeLayout implements View.OnClickListen
             btnRight.setImageResource(rightImageResource);
             btnRight.setBackgroundColor(Color.TRANSPARENT);
             btnRight.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            btnRight.setPadding(PADDING_12, 0, PADDING_12, 0);
+            btnRight.setPadding(PADDING_12, 0, PADDING_20, 0);
             btnRight.setOnClickListener(this);
             rlMain.addView(btnRight, rightInnerParams);
 

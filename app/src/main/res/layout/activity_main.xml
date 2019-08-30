@@ -2,15 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/rrj_main_bg_color"
-    xmlns:titlebar="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
-    <TextView
-        android:id="@+id/tv_wodedianji"
+    <com.rrju.library.titlebar.CustomTitleBar
         android:layout_width="match_parent"
-        android:textSize="@dimen/text_size_18"
-        android:textColor="@color/text_black"
-        android:text="图片"
-        android:gravity="center"
-        android:layout_height="50dp" />
+        app:statusBarMode="light"
+        app:titleBarColor="@color/colorPrimary"
+        app:statusBarColor="@color/colorPrimary"
+        app:fillStatusBar="true"
+        android:layout_height="wrap_content"
+        app:leftType="imageButton"/>
 </LinearLayout>
