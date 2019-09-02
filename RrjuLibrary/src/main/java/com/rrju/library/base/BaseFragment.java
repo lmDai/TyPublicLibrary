@@ -12,9 +12,13 @@ import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.rrju.library.R;
+import com.rrju.library.titlebar.CustomTitleBar;
 import com.rrju.library.ui.SysAlertDialog;
 
 
@@ -39,6 +43,8 @@ public abstract class BaseFragment extends Fragment {
      */
     public FragmentManager m_fragmentManager;
 
+    private CustomTitleBar mTitleBar;
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -54,6 +60,7 @@ public abstract class BaseFragment extends Fragment {
         res = getResources();
         // 获取FragmentManager 对象
         m_fragmentManager = getActivity().getSupportFragmentManager();
+        setTitleBarLayoutParam();
         initHttp();
         initView();
         initData();
@@ -65,7 +72,19 @@ public abstract class BaseFragment extends Fragment {
         super.onResume();
 //        MobclickAgent.onPageStart(mPageName);
     }
+    private void setTitleBarLayoutParam() {
+        try {
+            mTitleBar = (CustomTitleBar) findViewById(R.id.public_title_bar);
+            mTitleBar.setListener((v, action, extra) -> {
+                if (action == CustomTitleBar.ACTION_LEFT_BUTTON
+                        || action == CustomTitleBar.ACTION_LEFT_TEXT) {
+                    mContext.onBackPressed();
+                }
+            });
+        } catch (Exception e) {
 
+        }
+    }
     @Override
     public void onPause() {
         super.onPause();
@@ -113,6 +132,200 @@ public abstract class BaseFragment extends Fragment {
      * 初始化网络请求
      */
     public abstract void initHttp();
+    /**
+     * 标题栏左边设置文本
+     *
+     * @param text 左边字体内容
+     * @return
+     */
+    public TextView setLeftTextView(String text) {
+        return setLeftTextView(text, getResources().getColor(R.color.rrj_gray));
+    }
+
+    /**
+     * 标题栏左边设置文本
+     *
+     * @param text      左边字体内容
+     * @param textColor 字体颜色
+     * @return
+     */
+    public TextView setLeftTextView(String text, int textColor) {
+        return setLeftTextView(text, textColor, 16);
+
+    }
+
+    /***
+     * 标题栏左边设置文本
+     * @param text  左边字体内容
+     * @param textColor 字体颜色
+     * @param textSize 字体大小
+     * @return
+     */
+    public TextView setLeftTextView(String text, int textColor, int textSize) {
+        if(mTitleBar == null){
+            return null;
+        }
+        TextView leftTextView = mTitleBar.getLeftTextView();
+        leftTextView.setTextColor(getResources().getColor(textColor));
+        leftTextView.setText(text);
+        leftTextView.setTextSize(textSize);
+        return leftTextView;
+    }
+
+    /**
+     * 标题栏左边设置图标
+     */
+    public ImageButton setLeftImageButton() {
+        return setLeftImageButton(R.drawable.comm_titlebar_back_normal);
+    }
+
+    /***
+     * 标题栏左边设置图标
+     * @param imageDrawable 资源文件ID
+     * @return
+     */
+    public ImageButton setLeftImageButton(int imageDrawable) {
+        if(mTitleBar == null){
+            return null;
+        }
+        ImageButton leftImageButton = mTitleBar.getLeftImageButton();
+        leftImageButton.setImageResource(imageDrawable);
+        return leftImageButton;
+    }
+
+    /***
+     * 获取左边自定义布局
+     * @return
+     */
+    public View getLeftCusomView() {
+
+        if(mTitleBar == null){
+            return null;
+        }
+        return mTitleBar.getLeftCustomView();
+    }
+
+    /***
+     * 设置每个页面的title
+     * @param title 标题
+     * @return
+     */
+    public TextView setTitle(String title) {
+        return setTitle(title, R.color.rrj_text_black);
+    }
+
+    /**
+     * 设置每个页面的title
+     *
+     * @param title     标题
+     * @param textColor 字体颜色
+     * @return
+     */
+    public TextView setTitle(String title, int textColor) {
+        return setTitle(title, textColor, 16);
+    }
+
+    /**
+     * 设置每个页面的title
+     *
+     * @param title     标题
+     * @param textColor 字体颜色
+     * @param textSize  字体大小
+     * @return
+     */
+    public TextView setTitle(String title, int textColor, int textSize) {
+        if(mTitleBar == null){
+            return null;
+        }
+        TextView centerTextView = mTitleBar.getCenterTextView();
+        centerTextView.setTextColor(getResources().getColor(textColor));
+        centerTextView.setText(title);
+        centerTextView.setTextSize(textSize);
+        return centerTextView;
+    }
+
+    /***
+     * 获取中心自定义布局
+     * @return
+     */
+    public View getCenterCustomView() {
+        if(mTitleBar == null){
+            return null;
+        }
+        return mTitleBar.getCenterCustomView();
+    }
+
+    /**
+     * 标题栏右边边设置文本
+     *
+     * @param text 左边字体内容
+     * @return
+     */
+    public TextView setRightTextView(String text) {
+        return setRightTextView(text, getResources().getColor(R.color.rrj_gray));
+    }
+
+    /**
+     * 标题栏右边设置文本
+     *
+     * @param text      左边字体内容
+     * @param textColor 字体颜色
+     * @return
+     */
+    public TextView setRightTextView(String text, int textColor) {
+        return setRightTextView(text, textColor, 16);
+
+    }
+
+    /***
+     * 标题栏右边设置文本
+     * @param text  左边字体内容
+     * @param textColor 字体颜色
+     * @param textSize 字体大小
+     * @return
+     */
+    public TextView setRightTextView(String text, int textColor, int textSize) {
+        if(mTitleBar == null){
+            return null;
+        }
+        TextView leftTextView = mTitleBar.getRightTextView();
+        leftTextView.setTextColor(getResources().getColor(textColor));
+        leftTextView.setText(text);
+        leftTextView.setTextSize(textSize);
+        return leftTextView;
+    }
+
+    /**
+     * 标题栏右边设置图标
+     */
+    public ImageButton setRightImageButton() {
+        return setLeftImageButton(R.drawable.comm_titlebar_search_normal);
+    }
+
+    /***
+     * 标题栏右边设置图标
+     * @param imageDrawable 资源文件ID
+     * @return
+     */
+    public ImageButton setRightImageButton(int imageDrawable) {
+        if(mTitleBar == null){
+            return null;
+        }
+        ImageButton leftImageButton = mTitleBar.getRightImageButton();
+        leftImageButton.setImageResource(imageDrawable);
+        return leftImageButton;
+    }
+
+    /***
+     * 获取右边自定义布局
+     * @return
+     */
+    public View getRighttCusomView() {
+        if(mTitleBar == null){
+            return null;
+        }
+        return mTitleBar.getRightCustomView();
+    }
     /**
      * 通过Class跳转界面
      **/

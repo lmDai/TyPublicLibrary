@@ -43,4 +43,13 @@
     <color name="wheel_view_text_selcted">#898989</color>
     <color name="webview_with_progress_color_n">#aff28c</color>
     <color name="webview_with_progress_color_p">#6cba42</color>
+
+
+    <color name="buttonBg">#CCCCCC</color>
+    <color name="buttonTextColor">#000000</color>
+
+    <color name="controller_bg_dark">#66000000</color>
+    <color name="controller_bg_light">#00000000</color>
+
+    <color name="edit_base_line_color">#77ffffff</color>
 </resources>
