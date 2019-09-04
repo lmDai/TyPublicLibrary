@@ -14,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.rrju.library.R;
+import com.rrju.library.http.DJLOKHttpClient;
 import com.rrju.library.titlebar.CustomTitleBar;
 import com.rrju.library.ui.SysAlertDialog;
 
@@ -411,6 +412,7 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        DJLOKHttpClient.cancelTag(this);
         System.gc();
     }
 }

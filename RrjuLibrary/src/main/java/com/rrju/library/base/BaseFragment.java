@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.rrju.library.R;
+import com.rrju.library.http.DJLOKHttpClient;
 import com.rrju.library.titlebar.CustomTitleBar;
 import com.rrju.library.ui.SysAlertDialog;
 
@@ -397,5 +398,11 @@ public abstract class BaseFragment extends Fragment {
             fragment = fragment.getParentFragment();
         }
         return fragment;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        DJLOKHttpClient.cancelTag(this);
     }
 }

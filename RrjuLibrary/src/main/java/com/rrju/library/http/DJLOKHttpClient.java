@@ -4,7 +4,10 @@ package com.rrju.library.http;
 import android.app.Activity;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.TextUtils;
 
+
+import com.rrju.library.utils.DevelopLog;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -91,6 +94,7 @@ public class DJLOKHttpClient {
             responseHandler.onError(1, "请求参数错误");
         }
         String requestUrl = String.format("%s?%s", url, content.toString());
+        getUrl(1, url, content.toString(), "");
         Request request = new Request.Builder().url(requestUrl).tag(activity).build();
         OkHttpClient HttpClient = getSyncXYOkHttpClient();
         Call call = HttpClient.newCall(request);
@@ -115,6 +119,7 @@ public class DJLOKHttpClient {
                 }
                 try {
                     String responseValue = response.body().string();
+                   getUrl(2, "", "", responseValue);
                     successCallBack(responseValue, responseHandler);
                 } catch (IOException e) {
                     failedCallBack("获取返回值异常", responseHandler);
@@ -142,6 +147,7 @@ public class DJLOKHttpClient {
         //修改请求头
         MediaType MEDIA_TYPE_JSON = MediaType.parse("application/json");//mdiatype 这个需要和服务端保持一致
         RequestBody body = RequestBody.create(MEDIA_TYPE_JSON, jsonObject.toString());
+        getUrl(1, url, jsonObject.toString(), "");
         Request request = new Request.Builder().url(url).post(body).build();
         OkHttpClient HttpClient = getSyncXYOkHttpClient();
         Call call = HttpClient.newCall(request);
@@ -166,6 +172,7 @@ public class DJLOKHttpClient {
                 }
                 try {
                     String responseValue = response.body().string();
+                    getUrl(2, "", "", responseValue);
                     successCallBack(responseValue, responseHandler);
                 } catch (IOException e) {
                     failedCallBack("获取返回值异常", responseHandler);
@@ -223,6 +230,7 @@ public class DJLOKHttpClient {
         //修改请求头
         MediaType MEDIA_TYPE_JSON = MediaType.parse("application/json");//mdiatype 这个需要和服务端保持一致
         RequestBody body = RequestBody.create(MEDIA_TYPE_JSON, jsonObject.toString());
+        getUrl(1, url, jsonObject.toString(), "");
 
         Request request = new Request.Builder().url(url)
                 .cacheControl(cache).post(body).build();
@@ -250,6 +258,7 @@ public class DJLOKHttpClient {
                 }
                 try {
                     String responseValue = response.body().string();
+                    getUrl(2, "", "", responseValue);
                     successCallBack(responseValue, responseHandler);
                 } catch (IOException e) {
                     failedCallBack("获取返回值异常", responseHandler);
@@ -267,6 +276,7 @@ public class DJLOKHttpClient {
      * @return
      */
     private static void asyncPost(String url, String params, final HttpResponseHandler responseHandler, Activity activity) {
+        getUrl(1, url, params, "");
         RequestBody body = RequestBody.create(MEDIA_TYPE_JSON, params);
         CacheControl.Builder builder = new CacheControl.Builder();
         builder.maxAge(10, TimeUnit.MILLISECONDS);
@@ -295,6 +305,7 @@ public class DJLOKHttpClient {
                 }
                 try {
                     String responseValue = response.body().string();
+                    getUrl(2, "", "", responseValue);
                     successCallBack(responseValue, responseHandler);
                 } catch (IOException e) {
                     failedCallBack("获取返回值异常", responseHandler);
@@ -560,6 +571,17 @@ public class DJLOKHttpClient {
             }
         }
     }
+    public static void getUrl(int type, String url, String params, String object) {
+        if (!TextUtils.isEmpty(object)) {
+            object = object.replace("\\", "");
+        }
 
+        if (type == 1) {
+            DevelopLog.d("==", "请求路径：" + url);
+            DevelopLog.d("==", "请求参数：" + params);
+        } else {
+            DevelopLog.d("==", "返回参数：" + object);
+        }
+    }
 
 }

@@ -124,7 +124,10 @@ public class AppConfig {
      * 设备标识保存在本地
      */
     private String mDeviceId = "";
-
+    /**
+     * 是否开启日志开关
+     */
+    private boolean mDebuggable;
     /**
      * 获取单件实例
      *
@@ -210,6 +213,7 @@ public class AppConfig {
         mPatchName = SharedPrefData.getString("PatchName", "patch_signed_7zip.patch");
         IMLoginState = SharedPrefData.getInt("IMLoginState", -1);
         mDeviceId = SharedPrefData.getString("mDeviceId", "");
+        mDebuggable = SharedPrefData.getBoolean("mDebuggable", false);
     }
 
     /**
@@ -475,6 +479,23 @@ public class AppConfig {
         this.mHttpURL = mHttpURL;
         SharedPrefData.putString("HttpURL", mHttpURL);
 
+    }
+
+    /**
+     * 是否开启日志输出
+     * @return
+     */
+    public boolean ismDebuggable() {
+        return mDebuggable;
+    }
+
+    /**
+     * 是否开启日志输出
+     * @param mDebuggable
+     */
+    public void setmDebuggable(boolean mDebuggable) {
+        this.mDebuggable = mDebuggable;
+        SharedPrefData.putBoolean("mDebuggable", mDebuggable);
     }
 
     /**

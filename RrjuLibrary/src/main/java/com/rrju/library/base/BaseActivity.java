@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.rrju.library.R;
+import com.rrju.library.http.DJLOKHttpClient;
 import com.rrju.library.titlebar.CustomTitleBar;
 import com.rrju.library.ui.SysAlertDialog;
 
@@ -400,6 +401,7 @@ public abstract class BaseActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         myContext = null;
+        DJLOKHttpClient.cancelTag(this);
         System.gc();
 
     }
