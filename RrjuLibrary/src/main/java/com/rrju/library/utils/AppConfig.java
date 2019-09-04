@@ -74,9 +74,18 @@ public class AppConfig {
      */
     private String mAttentionNum;
     /**
-     * 图片服务器前缀
+     * 图片服务器公共前缀
      */
-    private String mImageURL;
+    private String mPublicImageURL;
+    /**
+     * 图片服务器私有地方前缀
+     */
+    private String mPrivateImageURL;
+    /**
+     * 网络请求地址前缀
+     */
+    private String mHttpURL;
+
     /**
      * 全景图片，视频前缀
      */
@@ -172,9 +181,10 @@ public class AppConfig {
             return null;
         }
     }
+
     public void init(Context c) {
         m_appContext = c.getApplicationContext();
-        SharedPrefData.init(m_appContext,DEFAULT_PREFERENCES_NAME);
+        SharedPrefData.init(m_appContext, DEFAULT_PREFERENCES_NAME);
         m_bCrashHappen = SharedPrefData.getBoolean("crashHappen", false);
         m_bIsFirstOpenWelcome = SharedPrefData.getBoolean("isFirstOpenWelcome", true);
         m_userID = SharedPrefData.getString("UserID", "");//默认用户为空
@@ -190,10 +200,10 @@ public class AppConfig {
         phone = SharedPrefData.getString("phone", "");
         mAttentionNum = SharedPrefData.getString("AttentionNum", "");
         mLoginType = SharedPrefData.getString("LoginType", "");
-        mImageURL = SharedPrefData.getString("ImageURL", "https://image.rrju.com");//    http://192.168.0.75:8888
+        mPublicImageURL = SharedPrefData.getString("PublicImageURL", "https://image.rrju.com");//    http://192.168.0.75:8888
+        mPrivateImageURL = SharedPrefData.getString("PrivateImageURL", "https://image.rrju.com");//    http://192.168.0.75:8888
+        mHttpURL = SharedPrefData.getString("HttpURL", "https://image.rrju.com");//    http://192.168.0.75:8888
         mBucketDomain = SharedPrefData.getString("BucketDomain", "https://daojiale.oss-cn-hangzhou.aliyuncs.com");
-
-
         m_RongToken = SharedPrefData.getString("RongToken", "");
         m_ImId = SharedPrefData.getString("ImId", "");
         m_IsDeatilsInputMessage = SharedPrefData.getBoolean("DeatilsInputMessage", false);
@@ -420,16 +430,51 @@ public class AppConfig {
     /**
      * 获取图片服务器前缀
      */
-//    public String getImageURL() {
-//        return mImageURL;
-//    }
+    public String getImageURL() {
+        return mPublicImageURL;
+    }
 
     /**
      * 保存图片服务器前缀
      */
     public void setImageURL(String string) {
-        this.mImageURL = string;
-        SharedPrefData.putString("ImageURL", string);
+        this.mPublicImageURL = string;
+        SharedPrefData.putString("PublicImageURL", string);
+    }
+
+    /**
+     *   获取图片服务器私有地方前缀
+     * @return
+     */
+    public String getmPrivateImageURL() {
+        return mPrivateImageURL;
+    }
+
+    /**
+     * 保存图片服务器私有地方前缀
+     */
+    public void setmPrivateImageURL(String mPrivateImageURL) {
+        this.mPrivateImageURL = mPrivateImageURL;
+        SharedPrefData.putString("PrivateImageURL", mPrivateImageURL);
+
+    }
+
+    /**
+     * 获取请求地址
+     * @return
+     */
+    public String getmHttpURL() {
+        return mHttpURL;
+    }
+
+    /**
+     * 设置请求地址
+     * @param mHttpURL
+     */
+    public void setmHttpURL(String mHttpURL) {
+        this.mHttpURL = mHttpURL;
+        SharedPrefData.putString("HttpURL", mHttpURL);
+
     }
 
     /**
@@ -610,6 +655,7 @@ public class AppConfig {
     public String getmAllFiltrate() {
         return mAllFiltrate;
     }
+
     /**
      * 获取通过服务器获取的融云Token
      *
